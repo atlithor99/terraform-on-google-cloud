@@ -4,15 +4,19 @@ description: Learn to install cli tools required for using Terraform on GCP
 ---
 
 ## Step-01: Introduction
-1. Install gcloud CLI 
+
+1. Install gcloud CLI
 2. Install Terraform CLI
 3. Install VSCode Editor
 4. Install Terraform Pluging for VSCode
 5. Implement above 4 steps in both MacOS and WindowsOS
 
 ## Step-02: MacOS: Install gcloud cli and verify
+
 ### Step-02-01: Install gcloud cli
+
 - [Install gcloud cli](https://cloud.google.com/sdk/docs/install-sdk#mac)
+
 ```t
 # Verify Python Version (Supported versions are Python 3 (3.5 to 3.11, 3.11 recommended)
 python3 -V
@@ -41,6 +45,7 @@ cd
 ```
 
 ### Step-02-02: Verify gcloud cli version
+
 ```t
 # Open new terminal
 AS PATH is updated, open new terminal
@@ -49,7 +54,8 @@ AS PATH is updated, open new terminal
 gcloud version
 ```
 
-### Step-02-03: Intialize gcloud CLI in local Terminal 
+### Step-02-03: Intialize gcloud CLI in local Terminal
+
 ```t
 # Initialize gcloud CLI
 ./google-cloud-sdk/bin/gcloud init
@@ -78,8 +84,10 @@ gcloud auth application-default login
 ```
 
 ### Step-02-04: Install Terraform CLI using Homebrew
+
 - [Download Packages](https://developer.hashicorp.com/terraform/install#darwin)
 - [Install Terraform](https://developer.hashicorp.com/terraform/tutorials/gcp-get-started/install-cli)
+
 ```t
 # Install the Hashicorp tap
 brew tap hashicorp/tap
@@ -93,8 +101,10 @@ brew upgrade hashicorp/tap/terraform
 ```
 
 ### Step-02-05: Install Terraform CLI - Manually
+
 - [Download Packages](https://developer.hashicorp.com/terraform/install#darwin)
 - [Install Terraform](https://developer.hashicorp.com/terraform/tutorials/gcp-get-started/install-cli)
+
 ```t
 # Copy binary zip file to a folder
 mkdir /Users/<YOUR-USER>/Documents/terraform-install
@@ -116,13 +126,16 @@ rm -rf /usr/local/bin/terraform
 ```
 
 ### Step-02-06: MACOS: IDE for Terraform - VS Code Editor
+
 - [Microsoft Visual Studio Code Editor](https://code.visualstudio.com/download)
 - [Hashicorp Terraform Plugin for VS Code](https://marketplace.visualstudio.com/items?itemName=HashiCorp.terraform)
 
-
 ## Step-03: WindowsOS: Install gcloud cli and verify
+
 ### Step-03-01: Install gcloud cli on WindowsOS
+
 - [Install gcloud cli on WindowsOS](https://cloud.google.com/sdk/docs/install-sdk#windows)
+
 ```t
 ## Important Note: Download the latest version available on that respective day
 Dowload Link: https://cloud.google.com/sdk/docs/install-sdk#windows
@@ -132,12 +145,14 @@ GoogleCloudSDKInstaller.exe
 ```
 
 ### Step-03-02: Verify gcloud cli version
+
 ```t
 # gcloud cli version
 gcloud version
 ```
 
-### Step-03-03: Intialize gcloud CLI in local Terminal 
+### Step-03-03: Intialize gcloud CLI in local Terminal
+
 ```t
 # Initialize gcloud CLI
 gcloud init
@@ -165,20 +180,21 @@ gcloud auth application-default login
 ```
 
 ### Step-03-04: Install Terraform CLI
+
 - [Download Terraform](https://developer.hashicorp.com/terraform/install#windows)
 - [Install Terraform](https://developer.hashicorp.com/terraform/tutorials/gcp-get-started/install-cli)
+
 ```t
 # Install the Hashicorp tap
 choco install terraform
 ```
+
 - Unzip the package
 - Create new folder `terraform-bins`
 - Copy the `terraform.exe` to a `terraform-bins`
-- Set PATH in windows 
+- Set PATH in windows
 
 ### Step-03-05: Windows: IDE for Terraform - VS Code Editor
+
 - [Microsoft Visual Studio Code Editor](https://code.visualstudio.com/download)
 - [Hashicorp Terraform Plugin for VS Code](https://marketplace.visualstudio.com/items?itemName=HashiCorp.terraform)
-
-
-
