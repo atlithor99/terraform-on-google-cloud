@@ -8,7 +8,7 @@ description: Learn to install cli tools required for using Terraform on GCP
 1. Install gcloud CLI
 2. Install Terraform CLI
 3. Install VSCode Editor
-4. Install Terraform Pluging for VSCode
+4. Install Terraform Plugin for VSCode
 5. Implement above 4 steps in both MacOS and WindowsOS
 
 ## Step-02: MacOS: Install gcloud cli and verify
@@ -54,7 +54,7 @@ AS PATH is updated, open new terminal
 gcloud version
 ```
 
-### Step-02-03: Intialize gcloud CLI in local Terminal
+### Step-02-03: Initialize gcloud CLI in local Terminal
 
 ```t
 # Initialize gcloud CLI
@@ -151,7 +151,7 @@ GoogleCloudSDKInstaller.exe
 gcloud version
 ```
 
-### Step-03-03: Intialize gcloud CLI in local Terminal
+### Step-03-03: Initialize gcloud CLI in local Terminal
 
 ```t
 # Initialize gcloud CLI
