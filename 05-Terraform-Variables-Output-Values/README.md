@@ -2,26 +2,34 @@
 title: GCP Google Cloud Platform - Terraform Input Variables and Output Values
 description: Learn Terraform Input Variables and Output Values on Google Cloud Platform
 ---
+
 ## Step-01: Introduction
+
 ### Terraform Concepts
+
 - Terraform Input Variables
 - Terraform Output Values
 
 ### What are we going to learn ?
-1. Learn about Terraform `Input Variable` basics
-  - gcp_project
-  - gcp_region
-  - machine_type
-2. Learn about Terraform `Output Values`
-  - vm_instanceid
-  - vm_selflink
-  - vm_id
-  - vm_name
-  - vm_machine_type
 
+1. Learn about Terraform `Input Variable` basics
+
+- gcp_project
+- gcp_region
+- machine_type
+
+2. Learn about Terraform `Output Values`
+
+- vm_instanceid
+- vm_selflink
+- vm_id
+- vm_name
+- vm_machine_type
 
 ## Step-02: c2-variables.tf - Define Input Variables in Terraform
+
 - [Terraform Input Variables](https://www.terraform.io/docs/language/values/variables.html)
+
 ```hcl
 # GCP Project
 variable "gcp_project" {
@@ -46,6 +54,7 @@ variable "machine_type" {
 ```
 
 ## Step-03: Reference the variables in respective `.tf`fies
+
 ```hcl
 # c1-versions.tf
 provider "google" {
@@ -58,7 +67,7 @@ resource "google_compute_subnetwork" "mysubnet" {
   name = "${var.gcp_region1}-subnet"
   region = var.gcp_region1
   ip_cidr_range = "10.128.0.0/20"
-  network = google_compute_network.myvpc.id 
+  network = google_compute_network.myvpc.id
 }
 
 # c5-vminstance.tf
@@ -69,7 +78,9 @@ resource "google_compute_instance" "myvm" {
 ```
 
 ## Step-04: Variable Definition Option: terraform.tfvars
-- We can define the variables 
+
+- We can define the variables
+
 ```t
 # terraform.tfvars
 gcp_project   = "gcplearn9"
@@ -91,6 +102,7 @@ Observation:
 ```
 
 ## Step-06: Variable Definition Option: vm.auto.tfvars
+
 ```t
 # vm.auto.tfvars
 machine_type  = "e2-medium"
@@ -107,6 +119,7 @@ Observation:
 ```
 
 ## Step-07: Variable Definition Option: vm.tfvars
+
 ```t
 # vm.tfvars
 machine_type  = "e2-standard-8"
@@ -127,6 +140,7 @@ Observation:
 ```
 
 ## Step-07: Variable Definition Option: Directly pass it in command
+
 ```t
 # Terraform plan
 terraform plan --var=machine_type=e2-standard-4
@@ -136,8 +150,10 @@ Observation:
 ```
 
 ## Step-08: Comment values in vm.auto.tfvars and vm.tfvars
-- We will use **machine_type  = "e2-micro"** from **terraform.tfvars** going forward.
+
+- We will use **machine_type = "e2-micro"** from **terraform.tfvars** going forward.
 - We have created other two files just to learn the multiple options available
+
 ```t
 # vm.auto.tfvars
 # machine_type  = "e2-medium"
@@ -147,6 +163,7 @@ Observation:
 ```
 
 ## Step-09: Input Variables as Environment Variables (Unix or Linux Environments)
+
 ```t
 # Comment machine_type in terraform.tfvars
 #machine_type  = "e2-micro"
@@ -168,7 +185,7 @@ terraform plan
 Observation: Machine type configured will be "e2-small" from variables.tf default value
 
 # Variable Precendence
-Priority-1: Any -var and -var-file options on the command line, in the order they are provided. 
+Priority-1: Any -var and -var-file options on the command line, in the order they are provided.
 Priority-2: Any *.auto.tfvars or *.auto.tfvars.json files, processed in lexical order of their filenames.
 Priority-3: The terraform.tfvars.json file, if present.
 Priority-4: The terraform.tfvars file, if present.
@@ -178,8 +195,10 @@ Priority-5: Environment variables
 machine_type  = "e2-micro"
 ```
 
-## Step-10: c6-output-values.tf - Define Output Values 
+## Step-10: c6-output-values.tf - Define Output Values
+
 - [Output Values](https://www.terraform.io/docs/language/values/outputs.html)
+
 ```hcl
 # Terraform Output Values
 ## ATTRIBUTES
@@ -216,6 +235,7 @@ output "vm_machine_type" {
 ```
 
 ## Step-11: Execute Terraform Commands
+
 ```t
 # Terraform Initialize
 terraform init
@@ -235,7 +255,7 @@ terraform plan
 2) Verify the variable replacements worked as expected
 
 # Terraform Apply
-terraform apply 
+terraform apply
 [or]
 terraform apply -auto-approve
 Observations:
@@ -244,6 +264,7 @@ Observations:
 ```
 
 ## Step-12: Access Application
+
 ```t
 # Access index.html
 http://<EXTERNAL-IP>/index.html
@@ -251,6 +272,7 @@ http://<EXTERNAL-IP>/app1/index.html
 ```
 
 ## Step-13: Clean-Up
+
 ```t
 # Terraform Destroy
 terraform plan -destroy  # You can view destroy plan using this command
@@ -260,4 +282,4 @@ terraform destroy
 rm -rf .terraform*
 rm -rf terraform.tfstate*
 ```
-  
+
