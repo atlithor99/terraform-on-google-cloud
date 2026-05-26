@@ -40,19 +40,6 @@ data "google_compute_image" "my_image" {
 
 
 # Outputs
-output "vmimage_info" {
-  value = {
-    project  = data.google_compute_image.my_image.project
-    family   = data.google_compute_image.my_image.family
-    name     = data.google_compute_image.my_image.name
-    image_id = data.google_compute_image.my_image.image_id
-    status   = data.google_compute_image.my_image.status
-    id       = data.google_compute_image.my_image.id
-    self_link = data.google_compute_image.my_image.self_link
-  }
-}
-
-/*
 output "vmimage_project" {
   value = data.google_compute_image.my_image.project
 }
@@ -80,4 +67,17 @@ output "vmimage_id" {
 output "vmimage_self_link" {
   value = data.google_compute_image.my_image.self_link
 }
-*/
+
+output "vmimage_info" {
+  value = {
+    project  = data.google_compute_image.my_image.project
+    family   = data.google_compute_image.my_image.family
+    name     = data.google_compute_image.my_image.name
+    image_id = data.google_compute_image.my_image.image_id
+    status   = data.google_compute_image.my_image.status
+    id       = data.google_compute_image.my_image.id
+    self_link = data.google_compute_image.my_image.self_link
+  }
+}
+
+
