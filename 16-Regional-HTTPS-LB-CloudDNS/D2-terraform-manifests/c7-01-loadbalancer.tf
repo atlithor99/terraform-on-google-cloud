@@ -37,6 +37,12 @@ resource "google_compute_region_url_map" "mylb" {
   default_service = google_compute_region_backend_service.mylb.self_link
 }
  
+/*
+# Resource: Regional HTTP Proxy
+resource "google_compute_region_target_http_proxy" "mylb" {
+  name   = "${local.name}-mylb-http-proxy"
+  url_map = google_compute_region_url_map.mylb.self_link
+}*/
 
 # Resource: Regional HTTPS Proxy
 resource "google_compute_region_target_https_proxy" "mylb" {
