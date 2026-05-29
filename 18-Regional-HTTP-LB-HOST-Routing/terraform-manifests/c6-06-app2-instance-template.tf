@@ -1,8 +1,8 @@
 # Google Compute Engine: Regional Instance Template
 resource "google_compute_region_instance_template" "myapp2" {
-  name        = "${local.name}-myapp2-template"
-  description = "This template is used to create MyApp2 server instances."
-  tags        = [tolist(google_compute_firewall.fw_ssh.target_tags)[0], tolist(google_compute_firewall.fw_http.target_tags)[0], tolist(google_compute_firewall.fw_health_checks.target_tags)[0]]
+  name                 = "${local.name}-myapp2-template"
+  description          = "This template is used to create MyApp2 server instances."
+  tags                 = [tolist(google_compute_firewall.fw_ssh.target_tags)[0], tolist(google_compute_firewall.fw_http.target_tags)[0], tolist(google_compute_firewall.fw_health_checks.target_tags)[0]]
   instance_description = "MyApp2 VM Instances"
   machine_type         = var.machine_type
   scheduling {
@@ -12,19 +12,20 @@ resource "google_compute_region_instance_template" "myapp2" {
   # Create a new boot disk from an image
   disk {
     #source_image      = "debian-cloud/debian-12"
-    source_image      = data.google_compute_image.my_image.self_link
-    auto_delete       = true
-    boot              = true
+    source_image = data.google_compute_image.my_image.self_link
+    auto_delete  = true
+    boot         = true
   }
   # Network Info
   network_interface {
-    subnetwork = google_compute_subnetwork.mysubnet.id 
-    /*access_config {
-      # Include this section to give the VM an external IP address
-    } */ 
+    subnetwork = google_compute_subnetwork.mysubnet.id
+    # access_config {
+    #   # Include this section to give the VM an external IP address
+    # }  
   }
   # Install Webserver
   metadata_startup_script = file("${path.module}/app2-webserver-install.sh")
+
   labels = {
     environment = local.environment
   }
@@ -32,5 +33,3 @@ resource "google_compute_region_instance_template" "myapp2" {
     environment = local.environment
   }
 }
-
-

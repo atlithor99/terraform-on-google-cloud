@@ -1,7 +1,9 @@
 #!/bin/bash
-sudo apt install -y telnet
-sudo apt install -y nginx
+sudo apt-get update # <-- add this
+sudo apt-get install -y telnet
+sudo apt-get install -y nginx
 sudo systemctl enable nginx
+sudo systemctl start nginx # <-- also add this (course probably has it elsewhere?)
 sudo chmod -R 755 /var/www/html
 sudo mkdir -p /var/www/html/app2
 HOSTNAME=$(hostname)
