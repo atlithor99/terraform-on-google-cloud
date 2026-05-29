@@ -3,14 +3,9 @@ output "mylb_static_ip_address" {
   value       = google_compute_address.mylb.address
 }
 
-output "myapp1_backend_service_self_link" {
+output "mylb_backend_service_self_link" {
   description = "The self link of the backend service."
   value       = google_compute_region_backend_service.myapp1.self_link
-}
-
-output "myapp2_backend_service_self_link" {
-  description = "The self link of the backend service."
-  value       = google_compute_region_backend_service.myapp2.self_link
 }
 
 output "mylb_url_map_self_link" {
